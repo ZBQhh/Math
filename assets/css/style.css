@@ -1,0 +1,13 @@
+/* assets/css/style.css */
+/* 必须按照此顺序引入 */
+@import "variables.css";
+@import "base.css";
+@import "layout.css";
+@import "components.css"; /* 核心：环境块的样式在这里 */
+
+/* 修复：防止 MathJax 未加载时公式闪烁 */
+mjx-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+}

@@ -1,0 +1,130 @@
+/* assets/css/layout.css */
+
+/* === 1. 全局设置 === */
+:root { font-size: 25px; } /* 基准字号 */
+
+body {
+    margin: 0; padding: 0;
+    font-family: var(--font-body);
+    background: var(--bg-body);
+    color: var(--text-main);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.8;
+}
+
+ul, li { list-style: none; padding: 0; margin: 0; }
+a { text-decoration: none; color: inherit; }
+#app { display: flex; min-height: 100vh; width: 100%; }
+
+/* === 2. 侧边栏 === */
+#sidebar {
+    width: var(--sidebar-width); /* 约 280px */
+    background-color: var(--bg-sidebar); 
+    border-right: 1px solid var(--border);
+    position: fixed; top: 0; left: 0; height: 100vh; z-index: 50;
+    display: flex; flex-direction: column;
+    padding: 1.5rem; box-sizing: border-box;
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+}
+
+.sidebar-fixed-top { flex-shrink: 0; margin-bottom: 1rem; }
+.brand {
+    font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800; margin-bottom: 1.2rem;
+    background: linear-gradient(135deg, var(--text-main) 0%, var(--text-light) 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent; display: block;
+}
+
+#sidebar-search-trigger {
+    width: 100%; box-sizing: border-box; padding: 12px;
+    background: rgba(0,0,0,0.03); border: 1px solid var(--border); border-radius: 6px;
+    color: var(--text-light); font-size: 0.95rem; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center; transition: 0.2s;
+}
+#sidebar-search-trigger:hover { background: var(--bg-body); border-color: var(--primary); color: var(--primary); }
+.kbd { font-size: 0.75rem; padding: 2px 6px; background: rgba(0,0,0,0.05); border-radius: 4px; font-family: var(--font-mono); }
+
+.sidebar-scroll-area { flex-grow: 1; overflow-y: auto; margin-right: -10px; padding-right: 10px; scrollbar-width: none; }
+.sidebar-scroll-area::-webkit-scrollbar { display: none; }
+.toc-label { font-size: 0.8rem; color: var(--text-light); font-weight: 700; text-transform: uppercase; margin: 1.5rem 0 0.8rem; letter-spacing: 1px; opacity: 0.8; }
+
+.toc-item-row { display: flex; align-items: center; justify-content: space-between; padding-right: 4px; border-radius: 6px; transition: 0.2s; margin-bottom: 4px; }
+.toc-item-row:hover { background-color: rgba(0,0,0,0.03); }
+.toc-link { flex: 1; display: flex; align-items: center; padding: 10px; color: var(--text-light); font-size: 0.95rem; transition: 0.2s; border-radius: 6px; }
+.toc-link:hover { background-color: var(--primary-bg); color: var(--primary); }
+.toc-link.active { background-color: var(--primary-bg); color: var(--primary); font-weight: 600; }
+.toc-num { opacity: 0.6; margin-right: 10px; font-size: 0.85rem; font-family: var(--font-mono); width: 20px; }
+.toc-toggle-btn { width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-light); border-radius: 4px; transition: transform 0.3s ease; font-size: 0.7rem; opacity: 0.6; }
+.toc-toggle-btn:hover { background-color: rgba(0,0,0,0.05); opacity: 1; }
+.toc-toggle-btn.expanded { transform: rotate(90deg); color: var(--primary); }
+
+.toc-sub-list { margin-left: 14px; padding-left: 14px; border-left: 1px solid var(--border); overflow: hidden; max-height: 0; opacity: 0; transition: max-height 0.3s ease, opacity 0.3s ease; }
+.toc-sub-list.open { max-height: 1000px; opacity: 1; margin: 6px 0 12px; }
+.toc-sub-link { display: block; padding: 8px 10px; font-size: 0.9rem; color: var(--text-main); opacity: 0.9; border-radius: 4px; margin: 2px 0; }
+.toc-sub-link:hover { background: rgba(0,0,0,0.03); color: var(--primary); opacity: 1; }
+
+.sidebar-footer { flex-shrink: 0; border-top: 1px solid var(--border); padding-top: 1.5rem; margin-top: 1rem; display: flex; justify-content: space-between; align-items: center; }
+.btn-theme { width: 40px; height: 40px; border-radius: 8px; border: 1px solid var(--border); background: transparent; color: var(--text-main); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.btn-theme:hover { background: var(--border); }
+.footer-info { font-size: 0.8rem; color: var(--text-light); opacity: 0.5; font-family: var(--font-mono); }
+
+/* === 3. 主内容区 (Desktop 默认) === */
+#content {
+    /* 桌面端：给侧边栏留出 280px 的左边距 */
+    margin-left: var(--sidebar-width);
+    
+    flex: 1;
+    max-width: 1600px;
+    width: 100%;
+    margin-right: auto;
+    
+    /* 桌面端 Padding：上下 5rem，左右使用百分比(6%)自适应，或者用 4rem */
+    /* 这里的 4rem 在大屏上很好，但在手机上绝对不行 */
+    padding: 5rem 6% 4rem 6%; 
+    
+    box-sizing: border-box;
+}
+
+/* === 4. 移动端适配 (核心修复区) === */
+#menu-toggle {
+    display: none; position: fixed; top: 1.2rem; left: 1.2rem; z-index: 200;
+    width: 44px; height: 44px; border: 1px solid var(--border); border-radius: 50%;
+    background: var(--bg-body); box-shadow: 0 4px 15px rgba(0,0,0,0.1); cursor: pointer;
+    flex-direction: column; justify-content: center; align-items: center; gap: 4px; transition: transform 0.3s;
+}
+.icon-bar { width: 20px; height: 2px; background: var(--text-main); border-radius: 2px; }
+body.scroll-down #menu-toggle { transform: translateY(-100px); }
+body.sidebar-open #menu-toggle { opacity: 0; pointer-events: none; }
+
+@media (min-width: 769px) { #menu-toggle { display: none !important; } }
+
+/* 当屏幕小于 768px (手机/iPad竖屏) 时 */
+@media (max-width: 768px) {
+    #menu-toggle { display: flex; }
+    
+    #sidebar { 
+        transform: translateX(-100%); 
+        width: 85%; max-width: 320px; 
+        transition: transform 0.3s; 
+        box-shadow: 2px 0 20px rgba(0,0,0,0.1); 
+    }
+    
+    #content {
+        /* 【关键修复 1】手机上不需要左边距，因为侧边栏隐藏了 */
+        margin-left: 0 !important; 
+        
+        /* 【关键修复 2】手机上左右 padding 必须小！1.2rem 足够了 */
+        /* 上方留 6rem 是为了避开汉堡按钮 */
+        padding: 6rem 1.2rem 4rem 1.2rem !important; 
+        
+        width: 100vw;
+    }
+    
+    body.sidebar-open #sidebar { transform: translateX(0); }
+    #sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 40; backdrop-filter: blur(4px); }
+    body.sidebar-open #sidebar-overlay { display: block; }
+}
+
+body.is-home #sidebar, body.is-home #menu-toggle { display: none !important; }
+body.is-home #content { margin: 0 !important; padding: 0 !important; max-width: 100%; }

@@ -1,0 +1,39 @@
+/* assets/css/base.css */
+
+/* 全局重置 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+    color: var(--text-main);
+    background-color: var(--bg-body); /* 强制使用变量里的白色 */
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 标题样式 */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: #111;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+h1 { font-size: 2.2rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.4rem; }
+
+/* 链接 */
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* 代码块 */
+code {
+    background: #f3f4f6;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.9em;
+    color: #c2410c;
+}
