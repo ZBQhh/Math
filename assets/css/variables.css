@@ -7,13 +7,13 @@
     --font-mono: "JetBrains Mono", "Fira Code", Consolas, monospace;
 
     /* --- 尺寸 --- */
-    --sidebar-width: 280px;
-    --content-width: 1100px;
+    --sidebar-width: 18rem;
+    --content-width: 1800px;
     --radius-sm: 6px;
     --radius-md: 12px;
 
     /* --- ☀️ 浅色模式 (Light Mode) --- */
-    --primary: #2563eb;           /* 核心蓝 */
+    --primary: #556bf7;           /* 亮蓝 (深色背景下更易读) */
     --primary-bg: #eff6ff;        /* 极浅蓝 (用于高亮背景) */
     
     --text-main: #1f2937;         /* 正文黑 (灰黑) */
@@ -28,7 +28,7 @@
 
 /* --- 🌙 深色模式 (Dark Mode) --- */
 html.theme-dark {
-    --primary: #60a5fa;           /* 亮蓝 (深色背景下更易读) */
+    --primary: #2563eb;           /* 亮蓝 (深色背景下更易读) */
     --primary-bg: rgba(59, 130, 246, 0.15); /* 蓝色的半透明背景 */
     
     --text-main: #f1f5f9;         /* 亮灰白 */

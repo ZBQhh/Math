@@ -1,8 +1,8 @@
 /* assets/css/components.css */
 
 /* === 1. 列表与正文 === */
-.chapter-body ul, .block-content ul { list-style-type: disc; margin: 1em 0; padding-left: 2em; }
-.chapter-body ol, .block-content ol { list-style-type: decimal; margin: 1em 0; padding-left: 2em; }
+.chapter-body ul, .block-content ul { list-style-type: disc; margin: 0em 0; padding-left: 1rem; }
+.chapter-body ol, .block-content ol { list-style-type: decimal; margin: 0em 0; padding-left: 1rem; }
 .chapter-body ul ul, .block-content ul ul { list-style-type: circle; }
 .chapter-body ol ol, .block-content ol ol { list-style-type: lower-alpha; }
 .chapter-body li, .block-content li { display: list-item; list-style: inherit; margin-bottom: 0.5em; line-height: 1.7; }
@@ -56,11 +56,11 @@ a.home-list-item:hover .chap-id { color: var(--primary); }
 
 /* === 3. 章节标题 (Relative Sizes) === */
 .chapter-header-wrapper { margin-bottom: 3rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
-.chapter-num { font-family: var(--font-mono); color: var(--primary); font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 2px; }
+.chapter-num { font-family: var(--font-mono); color: var(--primary); font-weight: 700; font-size: 2.5rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 2px; }
 .chapter-title { 
     margin: 0; line-height: 1.1; 
     font-family: var(--font-heading); 
-    color: var(--text-main); 
+    color: var(--primary); 
     font-size: 2.8rem; /* 约 53px */
     font-weight: 800; letter-spacing: -1.5px; 
 }
@@ -68,13 +68,13 @@ a.home-list-item:hover .chap-id { color: var(--primary); }
 .section-title { 
     margin-top: 3.5rem; margin-bottom: 1.2rem; padding-bottom: 0.6rem; 
     font-size: 1.8rem; /* 约 34px */
-    font-weight: 700; color: var(--text-main); 
+    font-weight: 700; color: var(--primary); 
     border-bottom: 1px solid var(--border); display: flex; align-items: baseline; 
 }
-.sec-num { color: var(--primary); margin-right: 0.6em; font-family: var(--font-mono); font-size: 0.85em; opacity: 0.8; cursor: pointer; transition: opacity 0.2s; }
+.sec-num { color: var(--primary); margin-right: 0.6em; font-family: var(--font-mono); font-size: 1.2em; opacity: 0.8; cursor: pointer; transition: opacity 0.2s; }
 .sec-num:hover { opacity: 1; text-decoration: underline; }
 
-.subsection-title { margin-top: 2rem; margin-bottom: 0.8rem; font-size: 1.4rem; font-weight: 600; color: var(--text-main); display: flex; align-items: center; }
+.subsection-title { margin-top: 2rem; margin-bottom: 0.8rem; font-size: 1.4rem; font-weight: 600; color: var(--primary); display: flex; align-items: center; }
 
 /* === 4. 数学环境 === */
 .macaron-block { margin: 2rem 0; border-radius: 0.8rem; background: var(--bg-body); border: 1px solid var(--border); display: flex; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); }

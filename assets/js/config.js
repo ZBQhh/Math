@@ -9,7 +9,7 @@ MathBook.config = {
     
     // 书籍信息
     bookInfo: {
-        title: "数学分析笔记",
+        title: "概率论与数理统计",
         subtitle: "重构版的现代化数学书",
         author: "MathBook Author",
         date: "2023 Edition",
@@ -19,7 +19,7 @@ MathBook.config = {
     // 环境注册表 (Macaron Palette)
     environments: {
         // === 1. 基础定义类 (蓝色系 - 核心基础) ===
-        definition: { zh: "定义", en: "Definition", color: "#2563eb", icon: "📝" }, // Blue
+        definition: { zh: "定义", en: "Definition", color: "#0452b2", icon: "📝" }, // Blue
         axiom:      { zh: "公理", en: "Axiom",      color: "#1d4ed8", icon: "🏛️" }, // Dark Blue
         postulate:  { zh: "公设", en: "Postulate",  color: "#3b82f6", icon: "📐" }, 
         principle:  { zh: "原理", en: "Principle",  color: "#60a5fa", icon: "🧭" },
