@@ -82,7 +82,7 @@ a { text-decoration: none; color: inherit; }
     
     /* 桌面端 Padding：上下 5rem，左右使用百分比(6%)自适应，或者用 4rem */
     /* 这里的 4rem 在大屏上很好，但在手机上绝对不行 */
-    padding: 5rem 6% 4rem 8%; 
+    padding: 5rem 4% 4rem 4%; 
     
     box-sizing: border-box;
 }
